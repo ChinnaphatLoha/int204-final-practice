@@ -3,6 +3,7 @@ package sit.int204.int204final.configs;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import sit.int204.int204final.utils.ListMapper;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -26,5 +27,10 @@ public class ApplicationConfig {
         }, String.class, LocalDate.class);
 
         return modelMapper;
+    }
+
+    @Bean
+    public ListMapper listMapper() {
+        return ListMapper.getInstance();
     }
 }
