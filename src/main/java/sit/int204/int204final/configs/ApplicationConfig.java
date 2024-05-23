@@ -1,6 +1,7 @@
 package sit.int204.int204final.configs;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import sit.int204.int204final.utils.ListMapper;
@@ -8,6 +9,9 @@ import sit.int204.int204final.utils.ListMapper;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+@EnableConfigurationProperties({
+        sit.int204.int204final.configs.FileStorageProperties.class
+})
 @Configuration
 public class ApplicationConfig {
     @Bean
