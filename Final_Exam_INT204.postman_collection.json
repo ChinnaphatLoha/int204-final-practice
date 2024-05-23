@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "53fa9044-931c-420c-9ee5-26515ef9a7f7",
+		"name": "Final Exam INT204",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32158689"
+	},
+	"item": [
+		{
+			"name": "Genre",
+			"item": [
+				{
+					"name": "Create new genre",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Documentary\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/genres"
+					},
+					"response": []
+				},
+				{
+					"name": "List all genres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/genres?sortBy=name&order=desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"genres"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "name"
+								},
+								{
+									"key": "order",
+									"value": "desc"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update genre",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Animation\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/genres/9"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete genre",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/genres/9"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Director",
+			"item": [
+				{
+					"name": "Create new director",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Baitong\",\n    \"lastName\": \"Saekow\",\n    \"dateOfBirth\": \"2003-10-08\",\n    \"gender\": \"Female\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/directors"
+					},
+					"response": []
+				},
+				{
+					"name": "List all directors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/directors?sortBy=dateOfBirth&order=desc&name=on",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"directors"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "dateOfBirth"
+								},
+								{
+									"key": "order",
+									"value": "desc"
+								},
+								{
+									"key": "name",
+									"value": "on"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update director",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Baitong - Krabi\",\n    \"lastName\": \"Saekow\",\n    \"dateOfBirth\": \"2003-10-08\",\n    \"gender\": \"Other\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/directors/5"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete director",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/directors/6"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "Create new movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Fifty shades of Krabi\",\n    \"releaseYear\": 2010,\n    \"genreId\": 3,\n    \"directorId\": 6\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/movies"
+					},
+					"response": []
+				},
+				{
+					"name": "List all movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/movies?sortBy=releaseYear&order=desc&page=0&size=2&genre=Action",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movies"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "releaseYear"
+								},
+								{
+									"key": "order",
+									"value": "desc"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update movie",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Fifty shades of Krabi\",\n    \"releaseYear\": 2015,\n    \"genreId\": 3,\n    \"directorId\": 6\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/movies/8"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/movies/8"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
