@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import sit.int204.int204final.services.FileService;
 
+@RestController
+@RequestMapping("/api/files")
 @AllArgsConstructor
 public class FileController {
     FileService fileService;
 
-    @GetMapping("/test")
+    @GetMapping("/init")
     public ResponseEntity<Object> testPropertiesMapping() {
         return ResponseEntity.ok(fileService.getFileStorageLocation()+ " has been created !!!");
     }
@@ -25,7 +27,21 @@ public class FileController {
     @GetMapping("/{filename:.+}")
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
         Resource file = fileService.loadFileAsResource(filename);
-        return ResponseEntity.ok().contentType(MediaType.MULTIPART_FORM_DATA).body(file);
+        String extension = filename.substring(filename.lastIndexOf(".")+1);
+        switch (extension) {
+            case "jpg", "jpeg", "png" -> {
+                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(file);
+            }
+            case "pdf" -> {
+                return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF).body(file);
+            }
+            case "json" -> {
+                return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(file);
+            }
+            default -> {
+                return ResponseEntity.ok().contentType(MediaType.APPLICATION_OCTET_STREAM).body(file);
+            }
+        }
     }
 
     @PostMapping("")
