@@ -271,6 +271,66 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "File",
+			"item": [
+				{
+					"name": "Create dir",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/files/init"
+					},
+					"response": []
+				},
+				{
+					"name": "Upload file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": "http://localhost:8080/api/files"
+					},
+					"response": []
+				},
+				{
+					"name": "List all files",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/files"
+					},
+					"response": []
+				},
+				{
+					"name": "Serve file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/files/App.vue"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete file",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/files/App.vue"
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
