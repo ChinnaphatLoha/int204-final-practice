@@ -34,3 +34,5 @@ build/
 
 # File uploads
 uploads/
+
+.DS_Store
