@@ -1,7 +1,11 @@
 package sit.int204.int204final.utils;
 
+import org.hibernate.type.internal.ParameterizedTypeImpl;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import sit.int204.int204final.dtos.PageDto;
 
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
@@ -27,5 +31,12 @@ public class ListMapper {
         return source.stream()
                 .map(entity -> modelMapper.map(entity, targetClass))
                 .toList();
+    }
+
+    public <S, T> PageDto<T> convertPage(Page<S> page, Class<T> targetClass) {
+        Type targetType = new ParameterizedTypeImpl(PageDto.class, new Type[]{targetClass}, null);
+        PageDto<T> pageDto = modelMapper.map(page, targetType);
+        pageDto.setContent(convertList(page.getContent(), targetClass));
+        return pageDto;
     }
 }
